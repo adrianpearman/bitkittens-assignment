@@ -11,11 +11,13 @@ $(function () {
       console.log('.ajax done');
       var catList = data['cats'];
 
-      console.log(catList[0]['name']);
-      var catName = (catList[0]['name']);
-      console.log(catList[0]['photo']);
-      var catPhoto = (catList[0]['photo']);
-      var catInfo = $('<img>').attr('src',catPhoto).attr('alt', catName).appendTo('#cat1');
+      for (var i = 0; i < catList.length; i++) {
+        var catName = catList[i]['name'];
+        console.log(catName);
+        var catPhoto = catList[i]['photo']
+        console.log(catPhoto);
+        var catInfo = $('<img>').attr('src', catPhoto).attr('alt', catName).appendTo('#cat'+(1+i))
+      }
     });
   });
 });
